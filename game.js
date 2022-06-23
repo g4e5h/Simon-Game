@@ -6,7 +6,7 @@ let gamePattern=[];
 let userClickedPattern=[];
 var started=false;
 let level=0;
-$(document).on('keypress',function(){
+$('#level-title').on('click',function(){
     if(!started){
         $('#level-title').text("Level "+ level);
         started=true;
@@ -15,12 +15,12 @@ $(document).on('keypress',function(){
 });
 
 $(".btn").on('click',function(){
-      var userChosenColour=$(this).attr("id");
+     var userChosenColour=$(this).attr("id");
       userClickedPattern.push(userChosenColour);
       playSound(userChosenColour);
       animatePress(userChosenColour);
-
       checkAnswer(userClickedPattern.length-1);
+
     }
 )
 
@@ -66,7 +66,7 @@ function startOver(){
     setTimeout(function(){
         $('body').removeClass('game-over');
     },350)
-    $('#level-title').text('Game Over! Press any key to restart');
+    $('#level-title').text('Game Over! Click here to restart');
     started=false;
     gamePattern=[];
     userClickedPattern=[];
